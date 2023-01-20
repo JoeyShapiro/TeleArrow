@@ -1,0 +1,17 @@
+/Users/oniichan/Documents/Code/TeleArrow/TeleQuiver/bin/Debug/net7.0/TeleQuiver
+/Users/oniichan/Documents/Code/TeleArrow/TeleQuiver/bin/Debug/net7.0/TeleQuiver.deps.json
+/Users/oniichan/Documents/Code/TeleArrow/TeleQuiver/bin/Debug/net7.0/TeleQuiver.runtimeconfig.json
+/Users/oniichan/Documents/Code/TeleArrow/TeleQuiver/bin/Debug/net7.0/TeleQuiver.dll
+/Users/oniichan/Documents/Code/TeleArrow/TeleQuiver/bin/Debug/net7.0/TeleQuiver.pdb
+/Users/oniichan/Documents/Code/TeleArrow/TeleQuiver/obj/Debug/net7.0/TeleQuiver.csproj.AssemblyReference.cache
+/Users/oniichan/Documents/Code/TeleArrow/TeleQuiver/obj/Debug/net7.0/TeleQuiver.GeneratedMSBuildEditorConfig.editorconfig
+/Users/oniichan/Documents/Code/TeleArrow/TeleQuiver/obj/Debug/net7.0/TeleQuiver.AssemblyInfoInputs.cache
+/Users/oniichan/Documents/Code/TeleArrow/TeleQuiver/obj/Debug/net7.0/TeleQuiver.AssemblyInfo.cs
+/Users/oniichan/Documents/Code/TeleArrow/TeleQuiver/obj/Debug/net7.0/TeleQuiver.csproj.CoreCompileInputs.cache
+/Users/oniichan/Documents/Code/TeleArrow/TeleQuiver/obj/Debug/net7.0/TeleQuiver.dll
+/Users/oniichan/Documents/Code/TeleArrow/TeleQuiver/obj/Debug/net7.0/refint/TeleQuiver.dll
+/Users/oniichan/Documents/Code/TeleArrow/TeleQuiver/obj/Debug/net7.0/TeleQuiver.pdb
+/Users/oniichan/Documents/Code/TeleArrow/TeleQuiver/obj/Debug/net7.0/TeleQuiver.genruntimeconfig.cache
+/Users/oniichan/Documents/Code/TeleArrow/TeleQuiver/obj/Debug/net7.0/ref/TeleQuiver.dll
+/Users/oniichan/Documents/Code/TeleArrow/TeleQuiver/bin/Debug/net7.0/Newtonsoft.Json.dll
+/Users/oniichan/Documents/Code/TeleArrow/TeleQuiver/obj/Debug/net7.0/TeleQuiver.csproj.CopyComplete

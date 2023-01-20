@@ -1,0 +1,17 @@
+/Users/oniichan/Documents/Code/TeleArrow/TeleCLI/bin/Debug/net7.0/TeleCLI
+/Users/oniichan/Documents/Code/TeleArrow/TeleCLI/bin/Debug/net7.0/TeleCLI.deps.json
+/Users/oniichan/Documents/Code/TeleArrow/TeleCLI/bin/Debug/net7.0/TeleCLI.runtimeconfig.json
+/Users/oniichan/Documents/Code/TeleArrow/TeleCLI/bin/Debug/net7.0/TeleCLI.dll
+/Users/oniichan/Documents/Code/TeleArrow/TeleCLI/bin/Debug/net7.0/TeleCLI.pdb
+/Users/oniichan/Documents/Code/TeleArrow/TeleCLI/obj/Debug/net7.0/TeleCLI.csproj.AssemblyReference.cache
+/Users/oniichan/Documents/Code/TeleArrow/TeleCLI/obj/Debug/net7.0/TeleCLI.GeneratedMSBuildEditorConfig.editorconfig
+/Users/oniichan/Documents/Code/TeleArrow/TeleCLI/obj/Debug/net7.0/TeleCLI.AssemblyInfoInputs.cache
+/Users/oniichan/Documents/Code/TeleArrow/TeleCLI/obj/Debug/net7.0/TeleCLI.AssemblyInfo.cs
+/Users/oniichan/Documents/Code/TeleArrow/TeleCLI/obj/Debug/net7.0/TeleCLI.csproj.CoreCompileInputs.cache
+/Users/oniichan/Documents/Code/TeleArrow/TeleCLI/obj/Debug/net7.0/TeleCLI.dll
+/Users/oniichan/Documents/Code/TeleArrow/TeleCLI/obj/Debug/net7.0/refint/TeleCLI.dll
+/Users/oniichan/Documents/Code/TeleArrow/TeleCLI/obj/Debug/net7.0/TeleCLI.pdb
+/Users/oniichan/Documents/Code/TeleArrow/TeleCLI/obj/Debug/net7.0/TeleCLI.genruntimeconfig.cache
+/Users/oniichan/Documents/Code/TeleArrow/TeleCLI/obj/Debug/net7.0/ref/TeleCLI.dll
+/Users/oniichan/Documents/Code/TeleArrow/TeleCLI/bin/Debug/net7.0/Newtonsoft.Json.dll
+/Users/oniichan/Documents/Code/TeleArrow/TeleCLI/obj/Debug/net7.0/TeleCLI.csproj.CopyComplete

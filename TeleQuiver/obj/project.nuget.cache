@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "zIX3GV57eWcl/Y8P0ZR1QYDAxlo/xBAkGTPQEq+6JJn0HMiPrnvB/4ICO8tYBw8BijhTLl8BLKKyspznePBoeQ==",
+  "success": true,
+  "projectFilePath": "/Users/oniichan/Documents/Code/TeleArrow/TeleQuiver/TeleQuiver.csproj",
+  "expectedPackageFiles": [
+    "/Users/oniichan/.nuget/packages/newtonsoft.json/13.0.2/newtonsoft.json.13.0.2.nupkg.sha512"
+  ],
+  "logs": []
+}
