@@ -14,6 +14,16 @@
             "related": ".xml"
           }
         }
+      },
+      "Telekinesis/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v7.0",
+        "compile": {
+          "bin/placeholder/Telekinesis.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Telekinesis.dll": {}
+        }
       }
     }
   },
@@ -47,11 +57,17 @@
         "newtonsoft.json.nuspec",
         "packageIcon.png"
       ]
+    },
+    "Telekinesis/1.0.0": {
+      "type": "project",
+      "path": "../Telekinesis/Telekinesis.csproj",
+      "msbuildProject": "../Telekinesis/Telekinesis.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net7.0": [
-      "Newtonsoft.Json >= 13.0.2"
+      "Newtonsoft.Json >= 13.0.2",
+      "Telekinesis >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -79,7 +95,11 @@
       "frameworks": {
         "net7.0": {
           "targetAlias": "net7.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "/Users/oniichan/Documents/Code/TeleArrow/Telekinesis/Telekinesis.csproj": {
+              "projectPath": "/Users/oniichan/Documents/Code/TeleArrow/Telekinesis/Telekinesis.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

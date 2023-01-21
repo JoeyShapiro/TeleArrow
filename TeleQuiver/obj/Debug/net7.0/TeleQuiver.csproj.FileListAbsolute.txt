@@ -15,3 +15,5 @@
 /Users/oniichan/Documents/Code/TeleArrow/TeleQuiver/obj/Debug/net7.0/ref/TeleQuiver.dll
 /Users/oniichan/Documents/Code/TeleArrow/TeleQuiver/bin/Debug/net7.0/Newtonsoft.Json.dll
 /Users/oniichan/Documents/Code/TeleArrow/TeleQuiver/obj/Debug/net7.0/TeleQuiver.csproj.CopyComplete
+/Users/oniichan/Documents/Code/TeleArrow/TeleQuiver/bin/Debug/net7.0/Telekinesis.dll
+/Users/oniichan/Documents/Code/TeleArrow/TeleQuiver/bin/Debug/net7.0/Telekinesis.pdb
