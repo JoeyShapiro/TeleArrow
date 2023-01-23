@@ -1,7 +1,6 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using System.Net;
 using System.Net.Sockets;
-using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using System.Text.Json;
 using Telekinesis;
@@ -23,14 +22,34 @@ listener.Start();
 
 var clients = new List<TcpClient>();
 
-var handler = await listener.AcceptTcpClientAsync();
-NetworkStream stream = handler.GetStream();
+//var handler = await listener.AcceptTcpClientAsync();
+TcpClient handler = null;
+Task<TcpClient> handlerAsync = listener.AcceptTcpClientAsync();
+NetworkStream stream;// = handler.GetStream();
 
 while (true)
 {
+	if (!handlerAsync.IsCompleted)
+		continue;
+	else if (handlerAsync.IsCompleted && handler == null)
+	{
+		handler = handlerAsync.Result;
+		Console.WriteLine($"someone connectied, no longer alone :D {handler.Client.LocalEndPoint} <=> {handler.Client.RemoteEndPoint}");
+	}
+	//else
+	//{
+	//	handler = handlerAsync.Result;
+	//	Console.WriteLine($"someone connectied, no longer alone :D {handler.Client.LocalEndPoint} <=> {handler.Client.RemoteEndPoint}");
+	//	handlerAsync = listener.AcceptTcpClientAsync();
+	//}
+
 	if (!handler.Connected)
 	{
-		handler = await listener.AcceptTcpClientAsync();
+		handler = null;
+		Console.WriteLine("waiting for player...");
+		//handler = await listener.AcceptTcpClientAsync();
+		handlerAsync = listener.AcceptTcpClientAsync();
+		Console.WriteLine("tired of waiting :P");
 		continue;
 	}
 
@@ -59,20 +78,3 @@ while (true)
 			break;
 	}
 }
-
-//try
-//{
-//	listener.Start();
-
-//	using TcpClient handler = await listener.AcceptTcpClientAsync();
-//	await using NetworkStream stream = handler.GetStream();
-
-//	//await stream.WriteAsync(player.Serialize());
-//	await stream.WriteAsync(Encoding.UTF8.GetBytes(json));
-
-//	Console.WriteLine($"Sent message: \"{json}\"");
-//}
-//finally
-//{
-//	listener.Stop();
-//}
