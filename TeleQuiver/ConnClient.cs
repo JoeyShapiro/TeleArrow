@@ -26,11 +26,9 @@ namespace TeleQuiver
 
 		public void Handle()
 		{
-			
+            Console.WriteLine($"hello from {client.Client.RemoteEndPoint}");
             while (client.Connected)
             {
-                //Console.WriteLine($"hello from {client.Client.RemoteEndPoint}");
-                //Thread.Sleep(1000);
                 var stream = client.GetStream();
                 var buffer = new byte[1_024];
                 int cnt = stream.Read(buffer);
@@ -47,7 +45,14 @@ namespace TeleQuiver
                 switch (message.ID)
                 {
                     case Message.MSG_CONNECT:
-                        //players.Add(new Player());
+                        Game.players.Add(client.Client.RemoteEndPoint!.ToString()!, new Player());
+                        break;
+                    case Message.MSG_DISCONNECT:
+                        Game.players.Remove(client.Client.RemoteEndPoint!.ToString()!);
+                        break;
+                    case Message.MSG_PLAYER:
+                        var response = JsonSerializer.Serialize(Game.players);
+                        stream.Write(Encoding.UTF8.GetBytes(response));
                         break;
                     case Message.MSG_UNKNOWN:
                         Console.WriteLine($"Recieved an unknown message");

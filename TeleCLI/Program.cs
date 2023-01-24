@@ -19,10 +19,12 @@ Console.WriteLine("Hello, World!");
 
 //var message = Encoding.UTF8.GetString(buffer, 0, received);
 //Console.WriteLine($"Message received: \"{message}\"");
-var message = new Message();
+var message = new Message { ID = Message.MSG_PLAYER };
 var test = new Player();
 test.username = "test";
-var json = JsonSerializer.Serialize(test);
+var msgConnect = new Message { ID = Message.MSG_CONNECT };
+var json = JsonSerializer.Serialize(msgConnect);
+
 
 using var client = new TcpClient();
 client.Connect("localhost", 8787);
@@ -30,14 +32,30 @@ client.Connect("localhost", 8787);
 var i = 0;
 await using NetworkStream stream = client.GetStream();
 
+await stream.WriteAsync(Encoding.UTF8.GetBytes(json));
 
+json = JsonSerializer.Serialize(message);
+Console.WriteLine($"Sent message: \"{json}\"");
+Thread.Sleep(1000);
 
 while (i != 3)
 {
 	await stream.WriteAsync(Encoding.UTF8.GetBytes(json));
-
 	Console.WriteLine($"Sent message: \"{json}\"");
-	Thread.Sleep(1000);
+
+    var buffer = new byte[1_024];
+    int cnt = stream.Read(buffer);
+    var received = Encoding.UTF8.GetString(buffer, 0, cnt);
+    Console.WriteLine(received);
+
+    Thread.Sleep(1000);
 	i++;
 }
+
+message = new Message { ID = Message.MSG_DISCONNECT };
+json = JsonSerializer.Serialize(message);
+await stream.WriteAsync(Encoding.UTF8.GetBytes(json));
+Console.WriteLine($"Sent message: \"{json}\"");
+Thread.Sleep(1000);
+
 client.Close();
