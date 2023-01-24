@@ -5,10 +5,11 @@ public class Player
     public int health { get; set; }
     public int x { get; set; }
     public int y { get; set; }
+    public float Speed { get; set; }
 
     public Player()
     {
-
+        
     }
 
     public byte[] Serialize()

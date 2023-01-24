@@ -16,6 +16,7 @@ public class Message
     public Message()
     {
         ID = -1;
+        Data = "";
     }
 }
 
