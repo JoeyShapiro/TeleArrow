@@ -1,61 +1,32 @@
 ﻿// See https://aka.ms/new-console-template for more information
-using System.Net;
 using System.Net.Sockets;
-using System.Text;
 using System.Text.Json;
 using Telekinesis;
-using System.Threading;
 
 Console.WriteLine("Hello, World!");
 
-//using var client = new TcpClient();
-//client.Connect("localhost", 8787);
-//await using NetworkStream stream = client.GetStream();
+using var client = new TcpClient();
+client.Connect("localhost", 8787);
+Connection conn = new Connection(client.GetStream(), 1000, true);
 
-//var buffer = new byte[1_024];
-//int received = await stream.ReadAsync(buffer);
-//Console.WriteLine(string.Join("", buffer));
-//Console.WriteLine(BitConverter.ToInt32(buffer, 0));
-
-//var message = Encoding.UTF8.GetString(buffer, 0, received);
-//Console.WriteLine($"Message received: \"{message}\"");
 var message = new Message { ID = Message.MSG_PLAYER };
 var test = new Player();
 test.username = "test";
 var msgConnect = new Message { ID = Message.MSG_CONNECT };
 var json = JsonSerializer.Serialize(msgConnect);
 
-
-using var client = new TcpClient();
-client.Connect("localhost", 8787);
+conn.Send(Message.MSG_CONNECT, "");
 
 var i = 0;
-await using NetworkStream stream = client.GetStream();
-
-await stream.WriteAsync(Encoding.UTF8.GetBytes(json));
-
-json = JsonSerializer.Serialize(message);
-Console.WriteLine($"Sent message: \"{json}\"");
-Thread.Sleep(1000);
-
 while (i != 3)
 {
-	await stream.WriteAsync(Encoding.UTF8.GetBytes(json));
-	Console.WriteLine($"Sent message: \"{json}\"");
+    conn.Send(Message.MSG_PLAYER, JsonSerializer.Serialize(test));
 
-    var buffer = new byte[1_024];
-    int cnt = stream.Read(buffer);
-    var received = Encoding.UTF8.GetString(buffer, 0, cnt);
+    var received = conn.Receive();
     Console.WriteLine(received);
-
-    Thread.Sleep(1000);
 	i++;
 }
 
-message = new Message { ID = Message.MSG_DISCONNECT };
-json = JsonSerializer.Serialize(message);
-await stream.WriteAsync(Encoding.UTF8.GetBytes(json));
-Console.WriteLine($"Sent message: \"{json}\"");
-Thread.Sleep(1000);
+conn.Send(Message.MSG_DISCONNECT, "");
 
 client.Close();
