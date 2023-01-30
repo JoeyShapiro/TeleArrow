@@ -12,8 +12,6 @@ Connection conn = new Connection(client.GetStream(), 1000, true);
 var message = new Message { ID = Message.MSG_PLAYER };
 var test = new Player();
 test.username = "test";
-var msgConnect = new Message { ID = Message.MSG_CONNECT };
-var json = JsonSerializer.Serialize(msgConnect);
 
 conn.Send(Message.MSG_CONNECT, "");
 
@@ -23,7 +21,12 @@ while (i != 3)
     conn.Send(Message.MSG_PLAYER, JsonSerializer.Serialize(test));
 
     var received = conn.Receive();
-    Console.WriteLine(received);
+    message = JsonSerializer.Deserialize<Message>(received);
+    var players = JsonSerializer.Deserialize<List<Player>>(message.Data);
+    foreach (var p in players)
+    {
+        Console.WriteLine($"{p.username} - health: {p.health}");
+    }
 	i++;
 }
 

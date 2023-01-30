@@ -39,18 +39,20 @@ namespace TeleQuiver
 					continue;
 				}
 
-				var message = JsonSerializer.Deserialize<Message>(received ?? "{}") ?? new Message();
-
+				var session = client.Client.RemoteEndPoint!.ToString()!;
+                var message = JsonSerializer.Deserialize<Message>(received ?? "{}") ?? new Message();
 				switch (message.ID)
 				{
 					case Message.MSG_CONNECT:
-						Game.players.Add(client.Client.RemoteEndPoint!.ToString()!, new Player());
+						Game.players.Add(session, new Player());
 						break;
 					case Message.MSG_DISCONNECT:
-						Game.players.Remove(client.Client.RemoteEndPoint!.ToString()!);
+						Game.players.Remove(session);
 						break;
 					case Message.MSG_PLAYER:
-						conn.Send(Message.MSG_PLAYER, JsonSerializer.Serialize(Game.players));
+						var player = JsonSerializer.Deserialize<Player>(message.Data);
+						var players = Game.UpdatePlayers(session, player);
+						conn.Send(Message.MSG_PLAYER, JsonSerializer.Serialize(players));
 						break;
 					case Message.MSG_UNKNOWN:
 						Console.WriteLine($"Recieved an unknown message");

@@ -22,6 +22,12 @@ namespace TeleQuiver
 				Thread.Sleep(1000);
 			}
 		}
+
+		public static List<Player> UpdatePlayers(string session, Player player)
+		{
+			players[session] = player;
+			return players.Values.ToList();
+		}
 	}
 }
 
