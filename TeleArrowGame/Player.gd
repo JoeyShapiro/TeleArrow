@@ -61,11 +61,13 @@ func collect():
 	arrow_collected = reload
 
 func shoot():
+	bar_charge.value = 0
 	arrow = arrow_scene.instance()
 	arrow.position = position
 	
 	var r = get_angle_to(get_global_mouse_position())
 	arrow.direction = Vector2(cos(r), sin(r))
+	arrow.rotation = r
 	
 	arrow.speed = 1200 * charge
 	charge = 0

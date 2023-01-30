@@ -30,3 +30,4 @@ margin_top = -47.0
 margin_right = 30.0
 margin_bottom = -33.0
 step = 1.0
+percent_visible = false

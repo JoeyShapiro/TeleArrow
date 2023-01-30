@@ -17,10 +17,9 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if come:
-		var r = get_angle_to(player_ref.position)
+		var r = get_angle_to(player_ref.position) + rotation
 		direction = Vector2(cos(r), sin(r)) * speed
 		position += direction * delta
-		
 		if position.distance_to(player_ref.position) < 10:
 			player_ref.collect()
 			queue_free()

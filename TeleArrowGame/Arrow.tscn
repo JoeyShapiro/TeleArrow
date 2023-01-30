@@ -19,7 +19,7 @@ gravity_scale = 0.0
 script = ExtResource( 2 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-position = Vector2( -0.5, 12 )
+position = Vector2( -2.98023e-08, 9.53674e-07 )
 scale = Vector2( 3.04688, 0.4375 )
 frames = SubResource( 1 )
 
