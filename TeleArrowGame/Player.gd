@@ -69,7 +69,8 @@ func shoot():
 	arrow.direction = Vector2(cos(r), sin(r))
 	arrow.rotation = r
 	
-	arrow.speed = 1200 * charge
+	arrow.speed_max = 1200 * charge
+	arrow.fall_off = -0.1
 	charge = 0
 	main.add_child(arrow)
 	has_arrow = false
